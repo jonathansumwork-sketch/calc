@@ -58,18 +58,11 @@ Other reproducibility gaps:
 
 ---
 
-## 3. Contradictory material in the zip
+## 3. Course template in the zip (not your work)
 
-`RANN_finish_project.ipynb` is the most recently modified notebook, and it describes a different experiment from the report:
+`RANN_finish_project.ipynb` is a course-provided guide, not your own notebook, so it is not evidence about your experiment and should not be submitted as your code. Earlier drafts of this audit wrongly treated it as yours; please disregard any comparison that did. Your own notebooks are `ANN_augmented.ipynb` (the experiment), your edits to `expander_2026-1 (1).ipynb` (the augmentation angles) and `conversion.ipynb` (the data pipeline).
 
-| | Report / `ANN_augmented.ipynb` | `RANN_finish_project.ipynb` |
-|---|---|---|
-| Hidden nodes | 200 | 100 |
-| Epochs | 10 | 4 |
-| Augmentation | -10, 0, +10, +20 rotations | -8, +8 rotations and a 1-pixel shift |
-| Run state | executed | **no outputs saved** |
-
-It also describes the images as having "different sizes/stroke thicknesses", which is not what the preprocessing does (see section 4). It also seeds the network (123) and uses `hnodes` for the first-layer weight scaling where the course code uses `inodes`. Either remove it from the submission or rewrite it so it is the single, executed notebook that matches the report.
+Where the template matters: if you copy anything from it, remember it uses 100 hidden nodes, 4 epochs and a different augmentation (-8, +8 degree rotations and a 1-pixel shift), so its numbers cannot be mixed with yours. Running it in your project folder would also overwrite `symbols_training_augmented.csv`.
 
 ---
 
