@@ -9,7 +9,7 @@ Every number marked **(my rerun)** comes from scripts in `audit_scripts/`, which
 ## 1. Bottom line
 
 - **The data is sound.** Dataset construction, the split and the 4x augmentation file all check out exactly.
-- **The headline claim is not supported by what is in the zip.** The report says augmentation raised accuracy from 98.2% to 99.6%. Only the 99.6% (4x) run has saved code and output. The 98.2% baseline and the 99.4% threefold run have no code, no output and no data file in the zip.
+- **The headline claim is not supported by what can be reproduced.** The report says augmentation raised accuracy from 98.2% to 99.6%. The 99.6% (4x) run is saved and reproducible. The 98.2% baseline comes from your `Baseline_training.ipynb`, but running its exact code on the submitted CSV gives about 86%, not 98.2%, so its saved output does not reproduce. The 99.4% threefold run has no code, no output and no data file.
 - **A fair baseline appears to match the 4x model.** When the 500-image baseline is trained the same way as the 4x model (shuffled), it scores about 99.55%, indistinguishable from 4x. Trained on `symbols_training.csv` in file order (sorted by class, no shuffle), it scores about 86%. Neither is 98.2%.
 - **The report's conclusion will probably have to change.** Plan on re-running the comparison and rewriting Results and Discussion around what the controlled run shows.
 
@@ -29,7 +29,7 @@ Every number marked **(my rerun)** comes from scripts in `audit_scripts/`, which
 | 4x accuracy 99.6% (498/500) and confusion matrix (4 as 2, 6 as 7) | Matches the executed notebook output | Supported, but see "no random seed" below |
 | **Baseline 98.2% (491/500)** | **Baseline code is in your separate `Baseline_training.ipynb`** (not in the original zip): same network, saved output 491/500. Its exact code on the submitted CSV gives 411-447/500 over 8 seeds, never 491, because it trains on the class-sorted file with no shuffle; its cells were also run out of order (execution counts 1,1,2,11,12,4,14,...), so the saved output likely reflects a different state. A shuffled baseline scores 497-498/500 **(my rerun)** | **Not reproducible** |
 | **Threefold 99.4% (497/500)** | **No code, output or CSV for the threefold set.** Rebuilding it, I get 496-498/500 over 12 seeds (mean 99.32%) **(my rerun)**, so the figure is plausible but undocumented | **Undocumented** |
-| "Same training settings across conditions" | Cannot be checked, because the baseline code is missing | Unknown |
+| "Same training settings across conditions" | Same network and settings in both notebooks, but different training order: the baseline notebook never shuffles the class-sorted file, while the augmented file was shuffled once | Not the same protocol |
 | Symbols 0-4 angular, 5-9 curved | Judgement call. In Figure 1, symbol 8 has a straight-edged triangle and symbol 9 a straight-sided trapezoid with a small circle | Check wording |
 
 ### Why the baseline matters
@@ -91,7 +91,7 @@ Where the template matters: if you copy anything from it, remember it uses 100 h
 | Dataset of about 1,000-4,000 labelled images | Met | 1,000 |
 | 256-level anti-aliased grayscale, 28x28 | Met | Verified; Methods does not describe the conversion |
 | Half held out before augmentation | Met | Verified |
-| Baseline with accuracy, training count, classes, hyperparameters, epochs | **Gap** | No baseline code or output; numbers cannot be reproduced |
+| Baseline with accuracy, training count, classes, hyperparameters, epochs | **Gap** | Baseline notebook exists but its saved 98.2% does not reproduce (class-sorted, unshuffled training) |
 | Augmentation applied and justified | Partial | Applied correctly; the choice of angles is not justified, and the 3x condition has no code |
 | Augmented set about 4x larger | Met | 2,000 |
 | Measure change in performance | **Gap** | Confounded by training order; single run per condition |
