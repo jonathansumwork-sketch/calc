@@ -1,0 +1,51 @@
+Condition,Seed,Test correct /500,Test accuracy (%),Original-train correct /500
+Baseline (500 images),0,498,99.6,500
+Baseline (500 images),1,498,99.6,500
+Baseline (500 images),2,498,99.6,500
+Baseline (500 images),3,498,99.6,500
+Baseline (500 images),4,497,99.4,500
+Baseline (500 images),5,497,99.4,500
+Baseline (500 images),6,498,99.6,500
+Baseline (500 images),7,498,99.6,500
+Baseline (500 images),8,498,99.6,500
+Baseline (500 images),9,497,99.4,500
+"3x rotation (0, +10, +20)",0,496,99.2,500
+"3x rotation (0, +10, +20)",1,496,99.2,500
+"3x rotation (0, +10, +20)",2,496,99.2,500
+"3x rotation (0, +10, +20)",3,497,99.4,500
+"3x rotation (0, +10, +20)",4,496,99.2,500
+"3x rotation (0, +10, +20)",5,497,99.4,500
+"3x rotation (0, +10, +20)",6,496,99.2,500
+"3x rotation (0, +10, +20)",7,497,99.4,500
+"3x rotation (0, +10, +20)",8,496,99.2,500
+"3x rotation (0, +10, +20)",9,497,99.4,500
+"4x rotation (-10, 0, +10, +20)",0,498,99.6,500
+"4x rotation (-10, 0, +10, +20)",1,498,99.6,500
+"4x rotation (-10, 0, +10, +20)",2,498,99.6,500
+"4x rotation (-10, 0, +10, +20)",3,497,99.4,500
+"4x rotation (-10, 0, +10, +20)",4,497,99.4,500
+"4x rotation (-10, 0, +10, +20)",5,498,99.6,500
+"4x rotation (-10, 0, +10, +20)",6,498,99.6,500
+"4x rotation (-10, 0, +10, +20)",7,497,99.4,500
+"4x rotation (-10, 0, +10, +20)",8,498,99.6,500
+"4x rotation (-10, 0, +10, +20)",9,498,99.6,500
+"Control: baseline, 40 epochs (= updates of 4x)",0,499,99.8,500
+"Control: baseline, 40 epochs (= updates of 4x)",1,499,99.8,500
+"Control: baseline, 40 epochs (= updates of 4x)",2,499,99.8,500
+"Control: baseline, 40 epochs (= updates of 4x)",3,499,99.8,500
+"Control: baseline, 40 epochs (= updates of 4x)",4,499,99.8,500
+"Control: baseline, 40 epochs (= updates of 4x)",5,499,99.8,500
+"Control: baseline, 40 epochs (= updates of 4x)",6,499,99.8,500
+"Control: baseline, 40 epochs (= updates of 4x)",7,499,99.8,500
+"Control: baseline, 40 epochs (= updates of 4x)",8,499,99.8,500
+"Control: baseline, 40 epochs (= updates of 4x)",9,499,99.8,500
+Exploratory: 5x symmetric (-20..+20),0,498,99.6,500
+Exploratory: 5x symmetric (-20..+20),1,498,99.6,500
+Exploratory: 5x symmetric (-20..+20),2,496,99.2,500
+Exploratory: 5x symmetric (-20..+20),3,498,99.6,500
+Exploratory: 5x symmetric (-20..+20),4,497,99.4,500
+Exploratory: 5x symmetric (-20..+20),5,497,99.4,500
+Exploratory: 5x symmetric (-20..+20),6,498,99.6,500
+Exploratory: 5x symmetric (-20..+20),7,498,99.6,500
+Exploratory: 5x symmetric (-20..+20),8,498,99.6,500
+Exploratory: 5x symmetric (-20..+20),9,498,99.6,500

@@ -1,0 +1,6 @@
+Condition,Training images,Test images,Hidden nodes,Learning rate,Epochs,Seeds,Mean correct /500,SD correct,Min correct,Max correct,Mean test accuracy (%),Mean accuracy on original train images (%),Mean paired difference vs baseline (images)
+Baseline (500 images),500,500,200,0.1,10,10,497.7,0.483,497,498,99.54,100.0,0.0
+"3x rotation (0, +10, +20)",1500,500,200,0.1,10,10,496.4,0.516,496,497,99.28,100.0,-1.3
+"4x rotation (-10, 0, +10, +20)",2000,500,200,0.1,10,10,497.7,0.483,497,498,99.54,100.0,0.0
+"Control: baseline, 40 epochs (= updates of 4x)",500,500,200,0.1,40,10,499.0,0.0,499,499,99.8,100.0,1.3
+Exploratory: 5x symmetric (-20..+20),2500,500,200,0.1,10,10,497.6,0.699,496,498,99.52,100.0,-0.1

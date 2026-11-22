@@ -22,6 +22,37 @@ This covers two sets of expectations: (A) the instructions inside `RANN_finish_p
 
 ---
 
+## 1b. What my executed run of the notebook showed
+
+These come from running the edited notebook end to end (10 seeds per condition, results identical on a second run). **Reproduce them on your own machine before quoting anything in the report.**
+
+Untouched test set (500 images; one image = 0.2 percentage points):
+
+| Condition | Training images | Mean correct /500 (SD) | Mean accuracy |
+|---|---|---|---|
+| Baseline | 500 | 497.7 (0.48) | 99.54% |
+| 3x rotation (0, +10, +20) | 1,500 | 496.4 (0.52) | 99.28% |
+| 4x rotation (-10, 0, +10, +20) | 2,000 | 497.7 (0.48) | 99.54% |
+| Control: baseline, 40 epochs | 500 | 499.0 (0.00) | 99.80% |
+| Exploratory: 5x symmetric (-20 to +20) | 2,500 | 497.6 (0.70) | 99.52% |
+
+Rotated copies of the test images (secondary analysis, mean accuracy %):
+
+| Condition | -30 | -20 | -10 | 0 | +10 | +20 | +30 |
+|---|---|---|---|---|---|---|---|
+| Baseline | 48.6 | 82.6 | 98.2 | 99.5 | 98.8 | 80.6 | 55.5 |
+| 3x | 30.2 | 60.7 | 95.9 | 99.3 | 99.7 | 99.6 | 93.9 |
+| 4x | 58.1 | 94.3 | 99.4 | 99.5 | 99.5 | 99.2 | 91.5 |
+| Control (40 epochs) | 46.1 | 81.3 | 98.4 | 99.8 | 98.6 | 76.8 | 53.6 |
+| 5x symmetric | 92.3 | 99.2 | 99.5 | 99.5 | 99.4 | 98.9 | 89.9 |
+
+What this means for the plan:
+- **No clean-test gain.** Baseline and 4x are tied, 3x is slightly lower, and the 40-epoch control is highest. The report's 98.2% baseline and its claimed improvement will not survive, so Results and Discussion must be rewritten around these numbers.
+- **Augmentation does change rotation robustness**, and the benefit follows the training range: 4x is strong on the +20 side but weak at -30, while the symmetric set is strong on both sides. The control shows this is not just extra training.
+- **The errors are specific images, not systematic class confusion.** The 4x model gets test image 237 (a 4, predicted as 2) wrong in all 10 seeds, and test image 345 (a 6) wrong in all 10 seeds, as does the baseline. These images are shown in figure 5, which is the evidence to examine for the Discussion. The report's earlier 6 as 7 error was one seed's outcome; across seeds the 4x model's 6 errors go mostly to 5.
+
+---
+
 ## 2. Requirements the notebook cannot meet for you
 
 | Requirement (source) | Status | What you need to do |
