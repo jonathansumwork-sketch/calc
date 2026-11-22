@@ -27,7 +27,7 @@ Every number marked **(my rerun)** comes from scripts in `audit_scripts/`, which
 | 4x set = originals at 0, and rotations -10, +10, +20 | All 500 training images found at each of the four angles, labels correct. File is shuffled (seed 42) | Supported |
 | 784-200-10, sigmoid, lr 0.1, 10 epochs | `ANN_augmented.ipynb` (executed) | Supported (for the 4x run only) |
 | 4x accuracy 99.6% (498/500) and confusion matrix (4 as 2, 6 as 7) | Matches the executed notebook output | Supported, but see "no random seed" below |
-| **Baseline 98.2% (491/500)** | **No baseline code or output anywhere in the zip.** I tried 24 baseline configurations (100 or 200 hidden nodes, 1/2/3/4/5/10 epochs, shuffled or not). With the report's settings: shuffled 497-498/500; file order 411-447/500 **(my rerun)**. 98.2% appeared in none | **Not supported / not reproducible** |
+| **Baseline 98.2% (491/500)** | **Baseline code is in your separate `Baseline_training.ipynb`** (not in the original zip): same network, saved output 491/500. Its exact code on the submitted CSV gives 411-447/500 over 8 seeds, never 491, because it trains on the class-sorted file with no shuffle; its cells were also run out of order (execution counts 1,1,2,11,12,4,14,...), so the saved output likely reflects a different state. A shuffled baseline scores 497-498/500 **(my rerun)** | **Not reproducible** |
 | **Threefold 99.4% (497/500)** | **No code, output or CSV for the threefold set.** Rebuilding it, I get 496-498/500 over 12 seeds (mean 99.32%) **(my rerun)**, so the figure is plausible but undocumented | **Undocumented** |
 | "Same training settings across conditions" | Cannot be checked, because the baseline code is missing | Unknown |
 | Symbols 0-4 angular, 5-9 curved | Judgement call. In Figure 1, symbol 8 has a straight-edged triangle and symbol 9 a straight-sided trapezoid with a small circle | Check wording |
@@ -50,7 +50,7 @@ Two things follow:
 1. **Training order is a confound.** `symbols_training.csv` is sorted by class (all 0s, then 1s, and so on). The expander notebook shuffles the augmented file, so the augmented model sees mixed data while an unshuffled baseline sees class blocks. Training in class order is much worse.
 2. **On the untouched test set there is no measurable augmentation effect.** The differences between shuffled baseline, 3x and 4x are at most one image out of 500, and a longer-trained baseline beats all of them.
 
-I do not know how 98.2% was obtained. This is a hypothesis about the cause, not a finding.
+I do not know exactly how the saved 98.2% was obtained. `Baseline_training.ipynb` trains in file order without shuffling, which is the confound described above; its saved output does not reproduce.
 
 Other reproducibility gaps:
 - **No random seed.** `ANN_augmented.ipynb` sets none, so the exact two errors (4 as 2, 6 as 7) will not recur on a rerun.
